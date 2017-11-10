@@ -308,7 +308,7 @@ function verListaAmigo(){
                                   
                                    var thTlf = document.createElement("th");
                                    //thTlf.innerText = documento.data().telefono;
-                                   var botontlf = document.createElement("button");
+                                   var botontlf = document.createElement("a");
                                    botontlf.setAttribute("href","tel:"+"+"+documento.data().telefono);
                                    botontlf.className = "btn btn-success";
                                    botontlf.innerText = documento.data().telefono;
@@ -322,7 +322,7 @@ function verListaAmigo(){
                                        //thVoto.innerText = "No";
                                        //var thBoton = document.createElement("th");
                                        //tr.appendChild(thBoton);
-                                       var boton = document.createElement("a");
+                                       var boton = document.createElement("button");
                                        boton.innerText = "No";
                                        boton.className = "btn btn-primary";
                                        boton.id = i.toString(); //SE GUARDA EL ID DEL CONTADOR
