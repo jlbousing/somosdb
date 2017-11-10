@@ -309,7 +309,7 @@ function verListaAmigo(){
                                    var thTlf = document.createElement("th");
                                    //thTlf.innerText = documento.data().telefono;
                                    var botontlf = document.createElement("a");
-                                   botontlf.setAttribute("href","tel:"+"+documento.data().telefono);
+                                   botontlf.setAttribute("href","tel:"+"+"+documento.data().telefono);
                                    botontlf.className = "btn btn-success";
                                    botontlf.innerText = documento.data().telefono;
                                    botontlf.id = "tlf_"+i.toString(); //SE IDENTIFICA LA ETIQUETA
