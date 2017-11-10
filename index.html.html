@@ -1,0 +1,358 @@
+<!Doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        
+        
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+        <script src="js/init.js"></script>
+        <link rel="stylesheet" href="css/syle.css">
+    </head>
+    <body id="body">    
+        
+    <section>
+        <header>
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-light bg-fondoNav">
+                    <a class="navbar-brand" href="#!" style=" color: #00FFFF;">somosDB</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                              <li class="nav-item">
+                                <a class="nav-link" href="#!" style=" color: #00FFFF;" onclick="location.reload()">Log out</a>
+                              </li>
+                         </ul>
+                   </div>
+               </nav>
+            </div>
+        </header>
+    </section>
+        
+        
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xs-12 col-md-12 col-lg-12">
+                    <h3>Ingrese su correo</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xs-12 col-md-12 col-lg-12">
+                    <input type="text" id="username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xs-12 col-md-12 col-lg-12">
+                    <br>
+                    <h3>Ingrese su contraseña</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xs-12 col-md-12 col-lg-12">
+                    <input type="text" id="pass">
+                </div>
+            </div>
+            <div>
+                
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-primary btn-block" onclick="logIn()">Log in</button>
+        <button class="btn btn-block" onclick='$("#myModal").modal()'>Registrarse</button>
+    </section>    
+        
+        
+    <section id="contVotoSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h3>Cantidad de votos: </h3> <h3 id="cantidadVoto"></h3>
+                </div>
+            </div>
+        </div>
+    </section>    
+        
+    <section id="tablaSection">
+        <div class="container">
+            <table class="table table-sm-responsive table-md-responsive table-lg-responsive table-xl-responsive" id="tabla">
+                <tbody>
+                    <tr>
+                        <td>Nombre</td>
+                        <td id="nombreUser"></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido</td>
+                        <td id="apellidoUser"></td>
+                    </tr>
+                    <tr>
+                        <td>Carnet</td>
+                        <td id="carnet"></td>
+                    </tr>
+                    <tr>
+                        <td>Telefono</td>
+                        <td id="telefono"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado de voto</td>
+                        <td id="voto"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>   
+        
+    <pre id="objeto"></pre>    
+    
+        
+        
+    <section id="votoSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-6">
+                    <button class="btn btn-primary btn-block" id="votarBoton" onclick="votar()">YA VOTÉ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <section id="menu">
+        
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                   <a class="btn btn-dark btn-block" data-toggle="collapse" href="#div1" aria-expanded="false" aria-controls="div1">Agregar amigo a su lista</a>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="collapse" id="div1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h5>Ingrese el nombre</h5>
+                                    <input type="text" id="nombreAmigo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <br>
+                                    <h5>Ingrese el apellido</h5>
+                                    <br>
+                                    <input type="text" id="apellidoAmigo">
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h5>Ingrese su carrera</h5>
+                                    <br>
+                                    <input type="text" id="carreraAmigo">
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h5>Ingrese su telefono</h5>
+                                    <br>
+                                    <input type="text" id="telefonoAmigo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <br>
+                                    <button class="btn btn-primary" onclick="registrarAmigo()">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <a class="btn btn-dark btn-block" data-toggle="collapse" href="#div2" aria-expanded="false" aria-controls="div2" onclick="verListaAmigo()">Ver su lista</a>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="collapse" id="div2">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <table class="table table-sm-responsive table-md-responsive table-lg-responsive table-xl-responsive">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Telefono</th>
+                                <th>voto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableAmigo">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <a class="btn btn-dark btn-block" data-toggle="collapse" href="#div3" aria-expanded="false" aria-controls="div3">Buscar estudiante</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="collapse" id="div3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h6>Ingrese el numero de telefono del usuario que desea buscar</h6>
+                                    <input type="text" id="personaTlf" placeholder="ejem. 04241234567">
+                                    <br>
+                                    <br>
+                                    <button class="btn btn-success" onclick="buscarPersona()">Buscar</button>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="container">
+                                            <table class="table table-sm-responsive table-md-responsive table-lg-responsive table-xl-responsive" id="busquedaDatos">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Nombre</td>
+                                                        <td id="nombreBuscado"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apellido</td>
+                                                        <td id="apellidoBuscado"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Carnet</td>
+                                                        <td id="carnetBuscado"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Correo</td>
+                                                        <td id="correoBuscado"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Estado de voto</td>
+                                                        <td id="votoBuscado"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        
+        
+    <div id="myModal" class="modal fade" role="dialog">
+     <div class="modal-dialog">
+
+    
+          <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title">Registro</h4>
+              </div>
+              <div class="modal-body">
+                
+                 <div class="row">
+                     <div class="col-xs-12 col-md-12 col-lg-12">
+                         <h4>Ingrese su nombre</h4>
+                         <input type="text" id="nombreS">
+                     </div>
+                 </div>
+                  <div class="row">
+                     <div class="col-xs-12 col-md-12 col-lg-12">
+                         <h4>Ingrese su apellido</h4>
+                         <input type="text" id="apellidoS">
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-xs-12 col-md-12 col-lg-12">
+                         <h4>Ingrese su carnet</h4>
+                         <input type="text" id="carnetS">
+                     </div>
+                 </div>
+                  <div class="row">
+                     <div class="col-xs-12 col-md-12 col-lg-12">
+                         <h4>Ingrese su correo</h4>
+                         <input type="text" id="correoS">
+                     </div>
+                 </div>
+                  <div class="row">
+                     <div class="col-xs-12 col-md-12 col-lg-12">
+                         <h4>Ingrese su contraseña</h4>
+                         <input type="text" id="passwordS">
+                     </div>
+                 </div>
+                  <div class="row">
+                     <div class="col-xs-12 col-md-12 col-lg-12">
+                         <h4>Ingrese su telefono</h4>
+                         <input type="text" id="telefonoS">
+                     </div>
+                 </div>
+                 <div class="row">
+                     <br>
+                     <button class="btn btn-primary" onclick="registrarEstudiante()">Enviar</button>
+                 </div>
+                  
+              </div>
+          </div>
+
+     </div>
+   </div>    
+        
+    <footer id="pie">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h6 id="textoFooter">desarrollado por Jorge Luis Bou-saad</h6>
+                </div>
+            </div>
+        </div>
+    </footer>    
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+    
+    
+</html>

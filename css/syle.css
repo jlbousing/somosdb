@@ -1,0 +1,71 @@
+#busquedaDatos {
+    display: none;
+}
+
+header{
+    background-color: #DF0101;
+    
+}
+
+.bg-fondoNav{
+    background-color: #DF0101;
+}
+
+
+#div2{
+    width: 50%;
+}
+
+#textoFooter{
+   
+    
+}
+
+#login{
+    left: 25%;
+    position: absolute;
+    display: block;
+    color: cyan;
+}
+
+#login input{
+    border-radius: 5px;
+    border: 10px;
+}
+
+#login button{
+    
+    display: contents;
+    right: 15%;
+    position: relative;
+}
+
+#contVotoSection{
+    display: none;
+}
+
+
+#tablaSection{
+    display: none;
+}
+
+#votoSection{
+    display: none;
+}
+
+#menu{
+    display: none;
+}
+
+footer{
+    background-color: #00FFFF;
+    color: #DF0101;
+    text-align: center;
+    bottom: 0; 
+    position: absolute; 
+    width: 100%;
+}
+
+body{
+    background-color: #DF0101;
+}
