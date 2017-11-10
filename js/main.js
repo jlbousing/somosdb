@@ -322,7 +322,7 @@ function verListaAmigo(){
                                        //thVoto.innerText = "No";
                                        //var thBoton = document.createElement("th");
                                        //tr.appendChild(thBoton);
-                                       var boton = document.createElement("button");
+                                       var boton = document.createElement("a");
                                        boton.innerText = "No";
                                        boton.className = "btn btn-primary";
                                        boton.id = i.toString(); //SE GUARDA EL ID DEL CONTADOR
