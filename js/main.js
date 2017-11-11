@@ -281,7 +281,7 @@ function verListaAmigo(){
                     
                             var i = 0;
                     
-                              querySnapshot.forEach((documento) => {
+                              querySnapshot.forEach(function(documento){
                         
                                    var tr = document.createElement("tr");
                                    i += 1;
