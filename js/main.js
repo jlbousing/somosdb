@@ -118,7 +118,7 @@ function buscarPersona(){
     console.log("El input tiene como valor "+persona);
     
     db.collection("Estudiante").where("telefono","==",persona).get().then(function(querySnapshot){
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach(function(doc) {
             
             if(doc != null){
                 
