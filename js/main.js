@@ -277,7 +277,7 @@ function verListaAmigo(){
             
             
                     if(doc.data().carnet == carnet){
-                        db.collection("Amigo").where("fk_estudiante","==",doc.id).get().then((querySnapshot) => {
+                        db.collection("Amigo").where("fk_estudiante","==",doc.id).get().then(function(querySnapshot) {
                     
                             var i = 0;
                     
