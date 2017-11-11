@@ -173,7 +173,7 @@ function votar(){
    var carnet = document.getElementById("carnet").innerText;
   
     
-   db.collection("Estudiante").get().then((querySnapshot) => {
+   db.collection("Estudiante").get().then(function(querySnapshot) {
       
        querySnapshot.forEach(function(doc) {
           
