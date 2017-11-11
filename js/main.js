@@ -333,7 +333,7 @@ function verListaAmigo(){
                                            
                                            db.collection("Amigo").where("telefono","==",tlf).get()
                                            .then(function(querySnapshot) {
-                                               querySnapshot.forEach((doc) => {
+                                               querySnapshot.forEach(function(doc) {
                                                   
                                                    db.collection("Amigo").doc(doc.id).update({voto: true}).then(function(){
                                                        var textoNuevo = document.createElement("h5");
