@@ -58,7 +58,7 @@ function logIn(){
     var username = document.getElementById("username").value;
     var pass = document.getElementById("pass").value;
     
-    db.collection("Estudiante").get().then((querySnapshot) => {
+    db.collection("Estudiante").get().then(function(querySnapshot){
        
         querySnapshot.forEach((doc) => {
            
@@ -219,7 +219,7 @@ function addAmigo(nombre,apellido,carrera,telefono){
     
     var carnet = document.getElementById("carnet").innerText;
     
-    db.collection("Estudiante").get().then((querySnapshot) => {
+    db.collection("Estudiante").get().then(function(querySnapshot){
         
         querySnapshot.forEach(function(doc){
             
@@ -271,7 +271,7 @@ function verListaAmigo(){
         
         var carnet = document.getElementById("carnet").innerText;
     
-        db.collection("Estudiante").get().then((querySnapshot) => {
+        db.collection("Estudiante").get().then(function(querySnapshot) {
         
               querySnapshot.forEach((doc) => {
             
@@ -332,7 +332,7 @@ function verListaAmigo(){
                                            var tlf = document.getElementById("tlf_"+boton.id).innerText;
                                            
                                            db.collection("Amigo").where("telefono","==",tlf).get()
-                                           .then((querySnapshot) => {
+                                           .then(function(querySnapshot) {
                                                querySnapshot.forEach((doc) => {
                                                   
                                                    db.collection("Amigo").doc(doc.id).update({voto: true}).then(function(){
