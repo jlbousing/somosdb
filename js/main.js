@@ -60,7 +60,7 @@ function logIn(){
     
     db.collection("Estudiante").get().then(function(querySnapshot){
        
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach(function(doc) {
            
             console.log("el usuario es "+username);
             console.log("servidor responde "+doc.data().correo);
@@ -147,13 +147,13 @@ function consultarVotos(){
         
         var votoTotal = 0;
         
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach(function(doc) {
             votoTotal += 1;
         });
         
         db.collection("Amigo").where("voto","==",true).get().then(function(querySnapshot){
             
-            querySnapshot.forEach((doc) => {
+            querySnapshot.forEach(function(doc){
               
                 votoTotal += 1;
             });
@@ -175,7 +175,7 @@ function votar(){
     
    db.collection("Estudiante").get().then((querySnapshot) => {
       
-       querySnapshot.forEach((doc) => {
+       querySnapshot.forEach(function(doc) {
           
            console.log(doc.id);
            
@@ -273,7 +273,7 @@ function verListaAmigo(){
     
         db.collection("Estudiante").get().then(function(querySnapshot) {
         
-              querySnapshot.forEach((doc) => {
+              querySnapshot.forEach(function(doc){
             
             
                     if(doc.data().carnet == carnet){
