@@ -99,15 +99,22 @@ function registrarEstudiante(){
         $("#myModal").modal("hide");
         
         contarvotos = true;
-        document.getElementById("login").style = "display: none";
-        document.getElementById("body").style = "background-color: #FFFFFF";
-        document.getElementById("pie").style = "position: relative";
-                
-        document.getElementById("contVotoSection").style = "display: block";    
-        document.getElementById("tablaSection").style = "display: block";
-        document.getElementById("votoSection").style = "display: block";
-        document.getElementById("menu").style = "display: block";    
-        
+        //document.getElementById("login").style = "display: none";
+        $("#login").css("display", "none");
+        //document.getElementById("body").style = "background-color: #FFFFFF";
+        $("#body").css("background-color", "#FFFFFF");
+        //document.getElementById("pie").style = "position: relative";
+        $("#pie").css("position", "relative");
+      
+        //document.getElementById("contVotoSection").style = "display: block";
+        $("#contVotoSection").css("display", "block");
+        //document.getElementById("tablaSection").style = "display: block";
+        $("#tablaSection").css("display", "block");
+        //document.getElementById("votoSection").style = "display: block";
+        $("#votoSection").css("display", "block");
+        //document.getElementById("menu").style = "display: block";    
+        $("#menu").css("display", "block");
+      
         document.getElementById("nombreUser").innerText = nombre;
         document.getElementById("apellidoUser").innerText = apellido;
         document.getElementById("carnet").innerText = carnet;
