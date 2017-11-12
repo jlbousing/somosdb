@@ -100,20 +100,20 @@ function registrarEstudiante(){
         
         contarvotos = true;
         //document.getElementById("login").style = "display: none";
-        $("#login").css("display", "none");
+        $("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
         $("#body").css("background-color", "#FFFFFF");
         //document.getElementById("pie").style = "position: relative";
         $("#pie").css("position", "relative");
       
         //document.getElementById("contVotoSection").style = "display: block";
-        $("#contVotoSection").css("display", "block");
+        $("#contVotoSection").show();
         //document.getElementById("tablaSection").style = "display: block";
-        $("#tablaSection").css("display", "block");
+        $("#tablaSection").show();
         //document.getElementById("votoSection").style = "display: block";
-        $("#votoSection").css("display", "block");
+        $("#votoSection").show();
         //document.getElementById("menu").style = "display: block";    
-        $("#menu").css("display", "block");
+        $("#menu").show();
       
         document.getElementById("nombreUser").innerText = nombre;
         document.getElementById("apellidoUser").innerText = apellido;
