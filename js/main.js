@@ -107,7 +107,7 @@ function logIn(){
                     
                    if(mediaquery.matches){
                            contarvotos = true;
-                    document.getElementById("login").style = "display: none";
+                     document.getElementById("login").className = ".hidden-xs";
                     document.getElementById("body").style = "background-color: #FFFFFF";
                     document.getElementById("pie").style = "position: relative";
                 
