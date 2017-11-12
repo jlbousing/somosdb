@@ -227,7 +227,8 @@ function votar(){
            if(doc.data().carnet == carnet){
                
                db.collection("Estudiante").doc(doc.id).update({voto: true}).then(function(){
-                   
+                   document.getElementById("votarBoton").style = "display: none";
+                   consultarVotos();
                }).catch(function(err){
                    console.log(err);
                });
