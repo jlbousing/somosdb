@@ -302,6 +302,8 @@ function addAmigo(nombre,apellido,carrera,telefono){
 
 function verListaAmigo(){
     
+    consultarVotos();
+    
     if(table){
         table = false;
         var nodo = document.getElementById("tableAmigo");
@@ -415,5 +417,6 @@ function verListaAmigo(){
 window.onload = function(){
  
   //setInterval(consultarVotos,3000);
+    consultarVotos();
     
 }
