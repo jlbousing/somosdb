@@ -369,6 +369,6 @@ function verListaAmigo(){
 
 window.onload = function(){
  
-  setInterval(consultarVotos,3000);
+  //setInterval(consultarVotos,3000);
     
 }
