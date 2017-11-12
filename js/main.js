@@ -36,8 +36,8 @@ function registrarEstudiante(){
         contarvotos = true;
       
         if(mediaQuery.matches){
-             //document.getElementById("login").style = "display: none";
-        $("#login").hide();
+             document.getElementById("login").className = ".hidden-xs";
+        //$("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
         $("#body").css("background-color", "#FFFFFF");
         //document.getElementById("pie").style = "position: relative";
