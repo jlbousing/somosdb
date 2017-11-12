@@ -105,7 +105,8 @@ function logIn(){
                        voto: doc.data().voto
                     }
                     
-                    contarvotos = true;
+                   if(mediaquery.matches){
+                           contarvotos = true;
                     document.getElementById("login").style = "display: none";
                     document.getElementById("body").style = "background-color: #FFFFFF";
                     document.getElementById("pie").style = "position: relative";
@@ -119,6 +120,22 @@ function logIn(){
                     document.getElementById("apellidoUser").innerText = doc.data().apellido;
                     document.getElementById("carnet").innerText = doc.data().carnet;
                     document.getElementById("telefono").innerText = doc.data().telefono;
+                   }else{
+                        contarvotos = true;
+                    document.getElementById("login").style = "display: none";
+                    document.getElementById("body").style = "background-color: #FFFFFF";
+                    document.getElementById("pie").style = "position: relative";
+                
+                    document.getElementById("contVotoSection").style = "display: block";    
+                    document.getElementById("tablaSection").style = "display: block";
+                    document.getElementById("votoSection").style = "display: block";
+                    document.getElementById("menu").style = "display: block";    
+                  
+                    document.getElementById("nombreUser").innerText = doc.data().nombre;
+                    document.getElementById("apellidoUser").innerText = doc.data().apellido;
+                    document.getElementById("carnet").innerText = doc.data().carnet;
+                    document.getElementById("telefono").innerText = doc.data().telefono;
+                   }
           
                     if(!doc.data().voto){
                         document.getElementById("voto").innerText = "No ha votado";
