@@ -36,7 +36,7 @@ function registrarEstudiante(){
         contarvotos = true;
       
         if(mediaQuery.matches){
-             document.getElementById("login").className = ".hidden-xs";
+             document.getElementById("login").style = "display: none";
         //$("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
         $("#body").css("background-color", "#FFFFFF");
@@ -107,7 +107,7 @@ function logIn(){
                     
                    if(mediaquery.matches){
                            contarvotos = true;
-                     document.getElementById("login").className = ".hidden-xs";
+                     document.getElementById("login").style = "display: none";
                     document.getElementById("body").style = "background-color: #FFFFFF";
                     document.getElementById("pie").style = "position: relative";
                 
