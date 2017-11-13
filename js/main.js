@@ -36,6 +36,8 @@ function registrarEstudiante(){
         contarvotos = true;
         
         document.getElementById("login").className = "oculto";
+        document.getElementById("username").className = "oculto";
+        document.getElementById("pass").className = "oculto";
         //document.getElementById("login").style = "display: none";
         //$("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
@@ -91,7 +93,8 @@ function logIn(){
                    
                            contarvotos = true;
                 
-                    
+                      document.getElementById("username").className = "oculto";
+                      document.getElementById("pass").className = "oculto";
                       document.getElementById("login").className = "oculto";
                    // document.getElementById("login").style = "display: none";
                     document.getElementById("body").style = "background-color: #FFFFFF";
