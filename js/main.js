@@ -35,8 +35,8 @@ function registrarEstudiante(){
         
         contarvotos = true;
         
-        var padre = document.getElementById("id").parentNode;
-        padre.removeChild(document.getElementById("id"));
+        var padre = document.getElementById("login").parentNode;
+        padre.removeChild(document.getElementById("login"));
         
        // document.getElementById("login").style = "display: none";
         //$("#login").hide();
@@ -93,8 +93,8 @@ function logIn(){
                    
                            contarvotos = true;
                 
-                     var padre = document.getElementById("id").parentNode;
-                     padre.removeChild(document.getElementById("id"));
+                     var padre = document.getElementById("login").parentNode;
+                     padre.removeChild(document.getElementById("login"));
                 
                      //document.getElementById("login").style = "display: none";
                     document.getElementById("body").style = "background-color: #FFFFFF";
