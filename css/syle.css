@@ -69,3 +69,7 @@ footer{
 body{
     background-color: #DF0101;
 }
+
+.oculto {
+    display: none;
+}
