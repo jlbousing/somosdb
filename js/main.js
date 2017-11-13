@@ -104,14 +104,26 @@ function logIn(){
                       document.getElementById("buttonText").className = "oculto";
                       document.getElementById("buttonRegistro").className = "oculto";
                    // document.getElementById("login").style = "display: none";
-                    document.getElementById("body").style = "background-color: #FFFFFF";
-                    document.getElementById("pie").style = "position: relative";
+                   // document.getElementById("body").style = "background-color: #FFFFFF";
+                      
                 
-                    document.getElementById("contVotoSection").style = "display: block";    
-                    document.getElementById("tablaSection").style = "display: block";
-                    document.getElementById("votoSection").style = "display: block";
-                    document.getElementById("menu").style = "display: block";    
-                  
+                             //document.getElementById("login").style = "display: none";
+        //$("#login").hide();
+        //document.getElementById("body").style = "background-color: #FFFFFF";
+        $("#body").css("background-color", "#FFFFFF");
+        //document.getElementById("pie").style = "position: relative";
+        $("#pie").css("position", "relative");
+      
+        //document.getElementById("contVotoSection").style = "display: block";
+        $("#contVotoSection").show();
+        //document.getElementById("tablaSection").style = "display: block";
+        $("#tablaSection").show();
+        //document.getElementById("votoSection").style = "display: block";
+        $("#votoSection").show();
+        //document.getElementById("menu").style = "display: block";    
+        $("#menu").show();
+                
+                   
                     document.getElementById("nombreUser").innerText = doc.data().nombre;
                     document.getElementById("apellidoUser").innerText = doc.data().apellido;
                     document.getElementById("carnet").innerText = doc.data().carnet;
