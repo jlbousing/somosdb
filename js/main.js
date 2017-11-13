@@ -35,10 +35,8 @@ function registrarEstudiante(){
         
         contarvotos = true;
         
-        var padre = document.getElementById("login").parentNode;
-        padre.removeChild(document.getElementById("login"));
-        
-       // document.getElementById("login").style = "display: none";
+        document.getElementById("login").className = "oculto";
+        //document.getElementById("login").style = "display: none";
         //$("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
         $("#body").css("background-color", "#FFFFFF");
@@ -93,10 +91,9 @@ function logIn(){
                    
                            contarvotos = true;
                 
-                     var padre = document.getElementById("login").parentNode;
-                     padre.removeChild(document.getElementById("login"));
-                
-                     //document.getElementById("login").style = "display: none";
+                    
+                      document.getElementById("login").className = "oculto";
+                   // document.getElementById("login").style = "display: none";
                     document.getElementById("body").style = "background-color: #FFFFFF";
                     document.getElementById("pie").style = "position: relative";
                 
