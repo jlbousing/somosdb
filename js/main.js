@@ -1,6 +1,6 @@
 //firebase.firestore().enablePersistence() //SE CONFIGURA PARA USAR LA APP OFFLINE
 
-var mediaquery = window.matchMedia("(max-width: 600px)");
+
 
 var db = firebase.firestore(); //SE INCIALIZA LA INSTANCIA DE LA BASE DE DATOS
 var table = false;
@@ -34,9 +34,7 @@ function registrarEstudiante(){
         $("#myModal").modal("hide");
         
         contarvotos = true;
-      
-        if(mediaQuery.matches){
-             document.getElementById("login").style = "display: none";
+        document.getElementById("login").style = "display: none";
         //$("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
         $("#body").css("background-color", "#FFFFFF");
@@ -51,23 +49,7 @@ function registrarEstudiante(){
         $("#votoSection").show();
         //document.getElementById("menu").style = "display: block";    
         $("#menu").show();
-        }else{
-          //document.getElementById("login").style = "display: none";
-        $("#login").hide();
-        //document.getElementById("body").style = "background-color: #FFFFFF";
-        $("#body").css("background-color", "#FFFFFF");
-        //document.getElementById("pie").style = "position: relative";
-        $("#pie").css("position", "relative");
-      
-        //document.getElementById("contVotoSection").style = "display: block";
-        $("#contVotoSection").show();
-        //document.getElementById("tablaSection").style = "display: block";
-        $("#tablaSection").show();
-        //document.getElementById("votoSection").style = "display: block";
-        $("#votoSection").show();
-        //document.getElementById("menu").style = "display: block";    
-        $("#menu").show();
-        }
+        
       
         document.getElementById("nombreUser").innerText = nombre;
         document.getElementById("apellidoUser").innerText = apellido;
@@ -104,8 +86,7 @@ function logIn(){
                        telefono: doc.data().telefono,
                        voto: doc.data().voto
                     }
-                    
-                   if(mediaquery.matches){
+                   
                            contarvotos = true;
                      document.getElementById("login").style = "display: none";
                     document.getElementById("body").style = "background-color: #FFFFFF";
@@ -120,22 +101,7 @@ function logIn(){
                     document.getElementById("apellidoUser").innerText = doc.data().apellido;
                     document.getElementById("carnet").innerText = doc.data().carnet;
                     document.getElementById("telefono").innerText = doc.data().telefono;
-                   }else{
-                        contarvotos = true;
-                    document.getElementById("login").style = "display: none";
-                    document.getElementById("body").style = "background-color: #FFFFFF";
-                    document.getElementById("pie").style = "position: relative";
                 
-                    document.getElementById("contVotoSection").style = "display: block";    
-                    document.getElementById("tablaSection").style = "display: block";
-                    document.getElementById("votoSection").style = "display: block";
-                    document.getElementById("menu").style = "display: block";    
-                  
-                    document.getElementById("nombreUser").innerText = doc.data().nombre;
-                    document.getElementById("apellidoUser").innerText = doc.data().apellido;
-                    document.getElementById("carnet").innerText = doc.data().carnet;
-                    document.getElementById("telefono").innerText = doc.data().telefono;
-                   }
           
                     if(!doc.data().voto){
                         document.getElementById("voto").innerText = "No ha votado";
