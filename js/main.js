@@ -36,8 +36,8 @@ function registrarEstudiante(){
         contarvotos = true;
         
         document.getElementById("login").className = "oculto";
-        document.getElementById("username").className = "oculto";
-        document.getElementById("pass").className = "oculto";
+        document.getElementById("usernameText").className = "oculto";
+        document.getElementById("passText").className = "oculto";
         //document.getElementById("login").style = "display: none";
         //$("#login").hide();
         //document.getElementById("body").style = "background-color: #FFFFFF";
