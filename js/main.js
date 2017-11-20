@@ -253,6 +253,7 @@ function registrarAmigo(){
     }
 }
 
+/*
 function addAmigo(nombre,apellido,carrera,telefono){
     
     
@@ -292,7 +293,70 @@ function addAmigo(nombre,apellido,carrera,telefono){
     
     
     
+} */
+
+
+
+function addAmigo(nombre,apellido,carrera,telefono){
+        
+    var carnet = document.getElementById("carnet").innerText;
+    
+    db.collection("Estudiante").get().then((querySnapshot) => {
+        
+        querySnapshot.forEach(function(doc){
+            
+            if(doc.data().carnet == carnet){
+                
+                var datos = {
+                    
+                    nombre: nombre,
+                    apellido: apellido,
+                    carrera: carrera,
+                    telefono: telefono,
+                    fk_estudiante: doc.id,
+                    voto: false
+                }
+                
+                
+                db.collection("Amigo").get().then(function(querySnapshot){
+                    
+                    var existe = false;
+                    
+                    querySnapshot.forEach(function(doc){
+                        
+                        if(datos.telefono == doc.data().telefono){
+                            existe = true;
+                        }
+                        
+                        
+                    });
+                    
+                    if(existe){
+                        alert(datos.nombre+" "+datos.apellido+" ya esta registrado por otra persona");
+                    }else{
+                        
+                        db.collection("Amigo").add(datos).then(function(){
+                            console.log("Se ha insertado un amigo");
+                            document.getElementById("nombreAmigo").value = "";
+                            document.getElementById("apellidoAmigo").value = "";
+                            document.getElementById("carreraAmigo").value = "";
+                            document.getElementById("telefonoAmigo").value = "";
+                    
+                        }).catch(function(err){
+                            console.log(err);
+                        });
+                        
+                     }
+                    
+                });
+                
+                
+            }
+            
+        });
+    });
 }
+
 
 function verListaAmigo(){
     
