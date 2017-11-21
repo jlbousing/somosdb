@@ -18,6 +18,7 @@ function registrarEstudiante(){
     var correo = document.getElementById("correoS").value;
     var pass = document.getElementById("passwordS").value;
     var tlf = document.getElementById("telefonoS").value;
+    var ca = document.getElementById("caRegistro").value;
     
     db.collection("Estudiante").add({
         nombre: nombre,
@@ -26,10 +27,11 @@ function registrarEstudiante(){
         correo: correo,
         password: pass,
         telefono: tlf,
+        ca: ca,
         voto: false
     }).then(function(){
         
-       
+        //alert("se registro el ca "+ca);
         
         $("#myModal").modal("hide");
         
@@ -92,6 +94,7 @@ function logIn(){
                        carnet: doc.data().carnet,
                        correo: doc.data().correo,
                        telefono: doc.data().telefono,
+                       ca: doc.data().ca,
                        voto: doc.data().voto
                     }
                    
@@ -128,6 +131,7 @@ function logIn(){
                     document.getElementById("apellidoUser").innerText = doc.data().apellido;
                     document.getElementById("carnet").innerText = doc.data().carnet;
                     document.getElementById("telefono").innerText = doc.data().telefono;
+                    document.getElementById("candidato").innerText = doc.data().ca;
                 
           
                     if(!doc.data().voto){
@@ -205,6 +209,79 @@ function consultarVotos(){
     });
 }
 
+
+
+function consultarVotosToth(){
+    
+    
+    db.collection("Estudiante").where("voto","==",true).get().then(function(querySnapshot){
+        
+        var votoTotal = 0;
+        
+        querySnapshot.forEach(function(doc) {
+            
+            if(doc.data().ca == "Andres Toth"){
+                votoTotal += 1;
+            }
+            
+            
+        });
+        
+        db.collection("Amigo").where("voto","==",true).get().then(function(querySnapshot){
+            
+            querySnapshot.forEach(function(doc){
+              
+                if(doc.data().ca == "Andres Toth"){
+                    votoTotal += 1;
+                }
+            });
+            
+             document.getElementById("votosToth").innerText = votoTotal.toString();
+        });
+        
+        //console.log(votoTotal);
+        
+       
+    });
+    
+    
+}
+
+function consultarVotosRonald(){
+    
+    db.collection("Estudiante").where("voto","==",true).get().then(function(querySnapshot){
+        
+        var votoTotal = 0;
+        
+        querySnapshot.forEach(function(doc) {
+            
+            if(doc.data().ca == "Ronald Quintero"){
+                votoTotal += 1;
+            }
+            
+            
+        });
+        
+        db.collection("Amigo").where("voto","==",true).get().then(function(querySnapshot){
+            
+            querySnapshot.forEach(function(doc){
+              
+                if(doc.data().ca == "Ronald Quintero"){
+                    votoTotal += 1;
+                }
+            });
+            
+             document.getElementById("votosRonald").innerText = votoTotal.toString();
+        });
+        
+        //console.log(votoTotal);
+        
+       
+    });
+    
+    
+}
+
 function votar(){
     
     
@@ -222,6 +299,8 @@ function votar(){
                db.collection("Estudiante").doc(doc.id).update({voto: true}).then(function(){
                    document.getElementById("votarBoton").style = "display: none";
                    consultarVotos();
+                   consultarVotosRonald();
+                   consultarVotosToth();
                }).catch(function(err){
                    console.log(err);
                });
@@ -241,12 +320,13 @@ function registrarAmigo(){
     var apellido = document.getElementById("apellidoAmigo").value;
     var carrera = document.getElementById("carreraAmigo").value;
     var telefono = document.getElementById("telefonoAmigo").value;
+    var ca = document.getElementById("caAmigo").value;
     
     console.log("El nombre ingresado es "+nombre);
     
     if(nombre != "" && apellido != "" && carrera != "" && telefono != ""){
         
-        addAmigo(nombre,apellido,carrera,telefono);
+        addAmigo(nombre,apellido,carrera,telefono,ca);
     }
     else{
         alert("Debe introducir los campos correctamente");
@@ -297,7 +377,7 @@ function addAmigo(nombre,apellido,carrera,telefono){
 
 
 
-function addAmigo(nombre,apellido,carrera,telefono){
+function addAmigo(nombre,apellido,carrera,telefono,ca){
         
     var carnet = document.getElementById("carnet").innerText;
     
@@ -314,6 +394,7 @@ function addAmigo(nombre,apellido,carrera,telefono){
                     carrera: carrera,
                     telefono: telefono,
                     fk_estudiante: doc.id,
+                    ca: ca,
                     voto: false
                 }
                 
@@ -361,6 +442,8 @@ function addAmigo(nombre,apellido,carrera,telefono){
 function verListaAmigo(){
     
     consultarVotos();
+    consultarVotosRonald();
+    consultarVotosToth();
     
     if(table){
         table = false;
@@ -476,5 +559,7 @@ window.onload = function(){
  
   //setInterval(consultarVotos,3000);
     consultarVotos();
+    consultarVotosRonald();
+    consultarVotosToth();
     
 }
