@@ -222,6 +222,7 @@ function consultarVotosToth(){
             
             if(doc.data().ca == "Andres Toth"){
                 votoTotal += 1;
+                console.log("vota por toth "+doc.id);
             }
             
             
@@ -233,6 +234,7 @@ function consultarVotosToth(){
               
                 if(doc.data().ca == "Andres Toth"){
                     votoTotal += 1;
+                    console.log("vota por toth "+doc.id);
                 }
             });
             
